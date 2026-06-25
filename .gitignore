@@ -3,8 +3,7 @@
 
 # Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 
 # Environment Variables
 .env
@@ -14,3 +13,9 @@ __pycache__/
 
 # Logs
 *.log
+
+# Uploaded files
+backend/uploads/
+
+# VS Code temporary files
+tempCodeRunnerFile*
