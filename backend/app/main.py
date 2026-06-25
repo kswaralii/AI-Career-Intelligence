@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.core.config import settings
 from app.core.logging import logger
+from app.api.routes.resume import router as resume_router
 
 app = FastAPI(
     title=settings.app_name,
@@ -9,6 +10,7 @@ app = FastAPI(
     description="AI Career Intelligence Platform API",
 )
 
+app.include_router(resume_router)
 
 @app.on_event("startup")
 async def startup_event():

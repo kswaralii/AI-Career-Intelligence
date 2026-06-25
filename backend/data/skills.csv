@@ -1,0 +1,27 @@
+Skill,Category
+Python,Programming
+Java,Programming
+C++,Programming
+SQL,Database
+MySQL,Database
+PostgreSQL,Database
+MongoDB,Database
+Pandas,AI/ML
+NumPy,AI/ML
+Scikit-learn,AI/ML
+TensorFlow,AI/ML
+PyTorch,AI/ML
+Machine Learning,AI/ML
+Deep Learning,AI/ML
+FastAPI,Backend
+Flask,Backend
+Django,Backend
+AWS,Cloud
+Azure,Cloud
+Docker,DevOps
+Kubernetes,DevOps
+Git,DevOps
+Linux,Operating System
+Power BI,Analytics
+Tableau,Analytics
+Excel,Analytics
