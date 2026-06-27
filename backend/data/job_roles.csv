@@ -1,6 +1,12 @@
-Role,Required Skills
-AI Engineer,"Python, Machine Learning, TensorFlow, FastAPI, AWS"
-ML Engineer,"Python, Scikit-learn, TensorFlow, Docker"
-Data Scientist,"Python, SQL, Pandas, Machine Learning"
-Backend Developer,"Python, FastAPI, SQL, Docker"
-Data Analyst,"SQL, Excel, Power BI, Python"
+| Role                      | Required Skills                                              |
+| ------------------------- | ------------------------------------------------------------ |
+| AI Engineer               | Python;Machine Learning;Deep Learning;FastAPI;Docker;AWS;Git |
+| Machine Learning Engineer | Python;Machine Learning;Scikit-learn;TensorFlow;Docker;Git   |
+| Data Scientist            | Python;SQL;Pandas;NumPy;Machine Learning;Git                 |
+| Data Analyst              | SQL;Python;Power BI;Excel;Pandas                             |
+| Backend Developer         | Python;FastAPI;SQL;Docker;Git                                |
+| Full Stack Developer      | HTML;CSS;JavaScript;React;FastAPI;SQL;Git                    |
+| DevOps Engineer           | Linux;Docker;Kubernetes;AWS;Git                              |
+| Cloud Engineer            | AWS;Docker;Linux;Git                                         |
+| Software Engineer         | Python;Java;SQL;Git                                          |
+| Computer Vision Engineer  | Python;OpenCV;Deep Learning;PyTorch                          |

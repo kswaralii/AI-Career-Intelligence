@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.api.routes.ats import router as ats_router
 from app.core.config import settings
 from app.core.logging import logger
 from app.api.routes.resume import router as resume_router
@@ -11,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(resume_router)
+app.include_router(ats_router)
 
 @app.on_event("startup")
 async def startup_event():
