@@ -19,3 +19,6 @@ backend/uploads/
 
 # VS Code temporary files
 tempCodeRunnerFile*
+
+# Environment Variables
+.env

@@ -4,6 +4,7 @@ from app.services.skill_extractor import SkillExtractor
 from fastapi import UploadFile
 from app.services.nlp_processor import NLPProcessor
 from app.services.pdf_parser import PDFParser
+from app.storage.resume_store import ResumeStore
 from app.utils.file_utils import (
     create_upload_directory,
     generate_unique_filename,
@@ -40,11 +41,19 @@ class ResumeService:
     nlp_result["normalized_text"]
 )
         # Return upload details and a preview of extracted text
+        ResumeStore.save(
+    filename,
+    {
+        "original_filename": file.filename,
+        "stored_filename": filename,
+        "file_path": str(destination),
+        "extracted_text": extracted_text,
+        "filtered_tokens": nlp_result["filtered_tokens"],
+        "extracted_skills": skills,
+    }
+)
+
         return {
-    "original_filename": file.filename,
-    "stored_filename": filename,
-    "file_path": str(destination),
-    "extracted_text_preview": extracted_text[:500],
-    "filtered_tokens": nlp_result["filtered_tokens"][:50],
-    "extracted_skills": skills,
+    "message": "Resume uploaded successfully.",
+    "resume_id": filename,
 }
