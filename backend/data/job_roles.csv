@@ -1,11 +1,13 @@
 Role,Required Skills
-AI Engineer,Python;Machine Learning;Deep Learning;FastAPI;Docker;AWS;Git
-Machine Learning Engineer,Python;Machine Learning;Scikit-learn;TensorFlow;Docker;Git
-Data Scientist,Python;SQL;Pandas;NumPy;Machine Learning;Git
-Data Analyst,SQL;Python;Power BI;Excel;Pandas
-Backend Developer,Python;FastAPI;SQL;Docker;Git
-Full Stack Developer,HTML;CSS;JavaScript;React;FastAPI;SQL;Git
-DevOps Engineer,Linux;Docker;Kubernetes;AWS;Git
-Cloud Engineer,AWS;Docker;Linux;Git
-Software Engineer,Python;Java;SQL;Git
-Computer Vision Engineer,Python;OpenCV;Deep Learning;PyTorch
+Backend Developer,"Python,FastAPI,Flask,Django,SQL,MySQL,PostgreSQL,REST API,Git,Docker"
+Full Stack Developer,"HTML,CSS,JavaScript,React,Node.js,Express.js,SQL,MongoDB,Git"
+Data Analyst,"Python,SQL,Excel,Pandas,NumPy,Power BI,Tableau,Data Visualization"
+Data Scientist,"Python,SQL,Pandas,NumPy,Scikit-learn,Machine Learning,Data Analysis,Data Visualization"
+Machine Learning Engineer,"Python,Scikit-learn,TensorFlow,PyTorch,Machine Learning,Deep Learning,Docker,AWS"
+AI Engineer,"Python,Machine Learning,Deep Learning,Natural Language Processing,Computer Vision,FastAPI,Docker,AWS"
+Cloud Engineer,"AWS,Azure,Google Cloud,Docker,Kubernetes,Linux,Git,CI/CD"
+DevOps Engineer,"Docker,Kubernetes,AWS,Linux,Git,GitHub,CI/CD,Jenkins"
+Frontend Developer,"HTML,CSS,JavaScript,TypeScript,React,Angular,Git"
+Software Engineer,"Python,Java,C++,SQL,Data Structures,Algorithms,Object-Oriented Programming,Git"
+Database Developer,"SQL,MySQL,PostgreSQL,MongoDB,SQLite,DBMS,Data Analysis"
+Business Intelligence Analyst,"SQL,Excel,Power BI,Tableau,Data Visualization,Data Analysis"

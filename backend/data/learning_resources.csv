@@ -1,6 +1,25 @@
 Skill,Resource,Platform,URL
-Python,Python Tutorial,W3Schools,https://www.w3schools.com/python/
-SQL,SQLBolt,SQLBolt,https://sqlbolt.com/
-FastAPI,FastAPI Tutorial,FastAPI Docs,https://fastapi.tiangolo.com/tutorial/
-Docker,Docker Get Started,Docker Docs,https://docs.docker.com/get-started/
-AWS,AWS Cloud Practitioner,AWS Skill Builder,https://explore.skillbuilder.aws/learn
+Python,Python for Beginners,freeCodeCamp,https://www.freecodecamp.org/learn/scientific-computing-with-python/
+SQL,SQL Tutorial,W3Schools,https://www.w3schools.com/sql/
+MySQL,MySQL Tutorial,W3Schools,https://www.w3schools.com/mysql/
+PostgreSQL,PostgreSQL Tutorial,PostgreSQL,https://www.postgresql.org/docs/
+MongoDB,MongoDB University,MongoDB,https://learn.mongodb.com/
+Pandas,Pandas Tutorials,Kaggle,https://www.kaggle.com/learn/pandas
+NumPy,NumPy Tutorial,W3Schools,https://www.w3schools.com/python/numpy/
+Scikit-learn,Machine Learning Course,Kaggle,https://www.kaggle.com/learn/intro-to-machine-learning
+TensorFlow,TensorFlow Tutorials,TensorFlow,https://www.tensorflow.org/tutorials
+PyTorch,PyTorch Tutorials,PyTorch,https://pytorch.org/tutorials/
+Machine Learning,Machine Learning Course,Coursera,https://www.coursera.org/learn/machine-learning
+Deep Learning,Deep Learning Specialization,Coursera,https://www.coursera.org/specializations/deep-learning
+FastAPI,FastAPI Tutorial,FastAPI,https://fastapi.tiangolo.com/tutorial/
+Flask,Flask Tutorial,Flask,https://flask.palletsprojects.com/en/stable/tutorial/
+Django,Django Tutorial,Django,https://docs.djangoproject.com/en/stable/intro/tutorial01/
+AWS,AWS Cloud Practitioner Essentials,AWS Skill Builder,https://explore.skillbuilder.aws/learn
+Azure,Azure Fundamentals,Microsoft Learn,https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/
+Docker,Docker Get Started,Docker,https://docs.docker.com/get-started/
+Kubernetes,Kubernetes Basics,Kubernetes,https://kubernetes.io/docs/tutorials/kubernetes-basics/
+Git,Git Tutorial,Atlassian,https://www.atlassian.com/git/tutorials
+Linux,Linux Command Line Basics,Ubuntu,https://ubuntu.com/tutorials/command-line-for-beginners
+Power BI,Power BI Learning Path,Microsoft Learn,https://learn.microsoft.com/en-us/training/powerplatform/power-bi/
+Tableau,Tableau Training,Tableau,https://www.tableau.com/learn/training
+Excel,Excel Training,Microsoft Support,https://support.microsoft.com/en-us/excel

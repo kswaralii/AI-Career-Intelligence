@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 
 
+class CareerRequest(BaseModel):
+    resume_id: str
+
+
 class CareerRecommendation(BaseModel):
     role: str
     match_percentage: int

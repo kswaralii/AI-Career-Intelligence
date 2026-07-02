@@ -1,5 +1,8 @@
 from pydantic import BaseModel
 
+class ATSRequest(BaseModel):
+    resume_id: str
+    job_description: str
 
 class LearningResource(BaseModel):
     skill: str

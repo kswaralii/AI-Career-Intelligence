@@ -2,10 +2,8 @@ from pydantic import BaseModel
 
 
 class AICoachRequest(BaseModel):
-    resume_skills: list[str]
-    ats_score: int
-    recommended_role: str
-    missing_skills: list[str]
+    resume_id: str
+    question: str
 
 
 class AICoachResponse(BaseModel):

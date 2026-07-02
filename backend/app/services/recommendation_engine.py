@@ -4,37 +4,31 @@ import pandas as pd
 
 
 class RecommendationEngine:
-    """
-    Returns learning resources for the missing skills
-    from learning_resources.csv.
-    """
 
     @staticmethod
     def recommend(missing_skills: list[str]):
 
-        file_path = Path("data/learning_resources.csv")
-
-        dataframe = pd.read_csv(file_path)
+        dataframe = pd.read_csv(
+            Path("data/learning_resources.csv")
+        )
 
         recommendations = []
 
         for skill in missing_skills:
 
-            result = dataframe[
-                dataframe["Skill"].str.lower() == skill.lower()
+            matches = dataframe[
+                dataframe["Skill"].astype(str).str.strip().str.lower()
+                == skill.strip().lower()
             ]
 
-            if not result.empty:
-
-                for _, row in result.iterrows():
-
-                    recommendations.append(
-                        {
-                            "skill": row["Skill"],
-                            "resource": row["Resource"],
-                            "platform": row["Platform"],
-                            "url": row["URL"]
-                        }
-                    )
+            for _, row in matches.iterrows():
+                recommendations.append(
+                    {
+                        "skill": str(row["Skill"]),
+                        "resource": str(row["Resource"]),
+                        "platform": str(row["Platform"]),
+                        "url": str(row["URL"]),
+                    }
+                )
 
         return recommendations

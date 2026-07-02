@@ -1,5 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, Form
-
+from app.schemas.ats import (
+    ATSRequest,
+    ATSResponse,
+)
 from app.schemas.job_description import (
     JobDescriptionRequest,
     JobDescriptionResponse,
@@ -34,11 +37,10 @@ async def analyze_job_description(
     response_model=ATSResponse
 )
 async def analyze_resume(
-    resume: UploadFile = File(...),
-    job_description: str = Form(...)
+    request: ATSRequest,
 ):
 
     return ATSService.analyze(
-        resume,
-        job_description
+        request.resume_id,
+        request.job_description
     )

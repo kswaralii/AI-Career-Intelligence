@@ -1,8 +1,9 @@
-from fastapi import APIRouter, UploadFile, File
+from fastapi import APIRouter, HTTPException
 
-from app.schemas.career import CareerResponse
-from app.services.resume_service import ResumeService
+from app.schemas.career import CareerRequest, CareerResponse
 from app.services.career_engine import CareerEngine
+from app.storage.resume_store import ResumeStore
+
 
 router = APIRouter(
     prefix="/career",
@@ -15,15 +16,29 @@ router = APIRouter(
     response_model=CareerResponse
 )
 async def recommend_career(
-    resume: UploadFile = File(...)
+    request: CareerRequest,
 ):
 
-    resume_result = ResumeService.save_resume(resume)
-
-    recommendations = CareerEngine.recommend(
-        resume_result["extracted_skills"]
+    resume_data = ResumeStore.get(
+        request.resume_id
     )
 
-    return {
-        "recommended_roles": recommendations
-    }
+    if not resume_data:
+        raise HTTPException(
+            status_code=404,
+            detail="Resume not found. Please upload your resume again."
+        )
+
+    resume_skills = resume_data.get(
+        "extracted_skills",
+        {}
+    )
+
+    if not resume_skills:
+        return {
+            "recommended_roles": []
+        }
+
+    return CareerEngine.recommend(
+        resume_skills
+    )

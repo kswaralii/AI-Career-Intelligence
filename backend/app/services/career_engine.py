@@ -1,56 +1,74 @@
 from pathlib import Path
+import re
 
 import pandas as pd
 
 
 class CareerEngine:
-    """
-    Recommends careers based on resume skills.
-    """
 
     @staticmethod
     def recommend(resume_skills: dict):
 
-        file_path = Path("data/job_roles.csv")
-        dataframe = pd.read_csv(file_path)
+        dataframe = pd.read_csv(Path("data/job_roles.csv"))
+        dataframe.columns = dataframe.columns.str.strip()
+
+        if "Role" not in dataframe.columns:
+            return {
+                "recommended_roles": [],
+                "message": "Career data is missing the Role column."
+            }
+
+        if "Required Skills" in dataframe.columns:
+            skills_column = "Required Skills"
+        elif "Skills" in dataframe.columns:
+            skills_column = "Skills"
+        else:
+            return {
+                "recommended_roles": [],
+                "message": "Career data is missing the skills column."
+            }
+
+        resume_skill_set = {
+            skill.strip().lower()
+            for skills in resume_skills.values()
+            for skill in skills
+        }
 
         recommendations = []
 
-        # Convert resume skills into a set
-        resume_set = set()
-
-        for skills in resume_skills.values():
-            resume_set.update(skill.lower() for skill in skills)
-
-        # Compare against every role
         for _, row in dataframe.iterrows():
 
-            role = row["Role"]
+            role = str(row["Role"]).strip()
 
-            required_skills = [
+            raw_skills = str(row[skills_column])
+
+            role_skills = {
                 skill.strip().lower()
-                for skill in row["Required Skills"].split(";")
-            ]
+                for skill in re.split(r"[;,]", raw_skills)
+                if skill.strip()
+            }
 
-            matched = len(
-                resume_set.intersection(required_skills)
-            )
+            if not role_skills:
+                continue
 
-            score = round(
-                (matched / len(required_skills)) * 100
+            matched_skills = resume_skill_set.intersection(role_skills)
+
+            match_percentage = round(
+                (len(matched_skills) / len(role_skills)) * 100
             )
 
             recommendations.append(
                 {
                     "role": role,
-                    "match_percentage": score
+                    "match_percentage": match_percentage
                 }
             )
 
-        # Highest score first
         recommendations.sort(
-            key=lambda x: x["match_percentage"],
+            key=lambda item: item["match_percentage"],
             reverse=True
         )
 
-        return recommendations[:5]
+        return {
+            "recommended_roles": recommendations[:5]
+        }

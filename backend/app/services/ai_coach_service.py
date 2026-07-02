@@ -1,9 +1,7 @@
-import google.generativeai as genai
+from google import genai
 
 from app.core.config import settings
-
-
-genai.configure(api_key=settings.gemini_api_key)
+from app.storage.resume_store import ResumeStore
 
 
 class AICoachService:
@@ -11,37 +9,68 @@ class AICoachService:
     @staticmethod
     def get_career_advice(data: dict):
 
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        resume = ResumeStore.get(data["resume_id"])
+
+        if resume is None:
+            return {
+                "advice": "Resume not found. Please upload your resume again."
+            }
+
+        question = data["question"].strip()
+        question_lower = question.lower()
+
+        career_keywords = [
+            "resume",
+            "career",
+            "placement",
+            "job",
+            "role",
+            "skill",
+            "project",
+            "roadmap",
+            "learn",
+            "interview",
+            "internship",
+            "coding",
+            "developer",
+            "engineer",
+            "data",
+            "machine learning",
+            "portfolio",
+            "cv",
+        ]
+
+        if not any(keyword in question_lower for keyword in career_keywords):
+            return {
+                "advice": (
+                    "I can help with career, resume, placements, projects, "
+                    "learning roadmaps, and interview preparation. "
+                    "Please ask a career-related question."
+                )
+            }
+
+        client = genai.Client(
+            api_key=settings.gemini_api_key
+        )
 
         prompt = f"""
-You are an expert AI Career Coach.
+You are CareerPilot AI, a professional career coach for BE students preparing for campus placements.
 
-Analyze the following candidate profile and provide personalized career advice.
+Candidate resume:
+{resume["extracted_text"]}
 
-Resume Skills:
-{", ".join(data["resume_skills"])}
+User question:
+{question}
 
-ATS Score:
-{data["ats_score"]}
-
-Recommended Role:
-{data["recommended_role"]}
-
-Missing Skills:
-{", ".join(data["missing_skills"])}
-
-Give:
-1. Overall assessment
-2. Strengths
-3. Weaknesses
-4. Skills to learn next
-5. Suggested projects
-6. A 30-day improvement roadmap
-
-Keep the response professional and concise.
+Answer only the user's question.
+Keep the answer concise, practical, and career-focused.
+Do not add extra sections unless the user asks for them.
 """
 
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+        )
 
         return {
             "advice": response.text

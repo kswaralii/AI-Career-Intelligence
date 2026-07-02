@@ -1,27 +1,61 @@
-Skill,Category
-Python,Programming
-Java,Programming
-C++,Programming
-SQL,Database
-MySQL,Database
-PostgreSQL,Database
-MongoDB,Database
-Pandas,AI/ML
-NumPy,AI/ML
-Scikit-learn,AI/ML
-TensorFlow,AI/ML
-PyTorch,AI/ML
-Machine Learning,AI/ML
-Deep Learning,AI/ML
-FastAPI,Backend
-Flask,Backend
-Django,Backend
-AWS,Cloud
-Azure,Cloud
-Docker,DevOps
-Kubernetes,DevOps
-Git,DevOps
-Linux,Operating System
-Power BI,Analytics
-Tableau,Analytics
-Excel,Analytics
+Skill,Category,Aliases
+Python,Programming,"python,python3"
+Java,Programming,"java"
+C++,Programming,"c++,cpp"
+JavaScript,Programming,"javascript,js"
+TypeScript,Programming,"typescript"
+C,Programming,"c"
+C#,Programming,"c#,csharp"
+HTML,Frontend,"html,html5"
+CSS,Frontend,"css,css3"
+React,Frontend,"react,reactjs,react.js"
+Angular,Frontend,"angular,angularjs"
+Node.js,Backend,"node.js,nodejs,node"
+Express.js,Backend,"express.js,expressjs,express"
+FastAPI,Backend,"fastapi,fast api"
+Flask,Backend,"flask"
+Django,Backend,"django"
+REST API,Backend,"rest api,restful api,restful services"
+GraphQL,Backend,"graphql"
+SQL,Database,"sql"
+MySQL,Database,"mysql"
+PostgreSQL,Database,"postgresql,postgres,psql"
+MongoDB,Database,"mongodb,mongo db,mongo"
+SQLite,Database,"sqlite"
+Redis,Database,"redis"
+Pandas,AI/ML,"pandas"
+NumPy,AI/ML,"numpy,np"
+Scikit-learn,AI/ML,"scikit-learn,scikit learn,sklearn"
+TensorFlow,AI/ML,"tensorflow,tensor flow"
+PyTorch,AI/ML,"pytorch,py torch"
+Machine Learning,AI/ML,"machine learning"
+Deep Learning,AI/ML,"deep learning"
+Natural Language Processing,AI/ML,"natural language processing,nlp"
+Computer Vision,AI/ML,"computer vision"
+Data Analysis,Analytics,"data analysis,data analytics"
+Data Visualization,Analytics,"data visualization,data visualisation"
+Power BI,Analytics,"power bi,powerbi"
+Tableau,Analytics,"tableau"
+Excel,Analytics,"excel,microsoft excel"
+Matplotlib,Analytics,"matplotlib"
+Seaborn,Analytics,"seaborn"
+AWS,Cloud,"aws,amazon web services"
+Azure,Cloud,"azure,microsoft azure"
+Google Cloud,Cloud,"google cloud,gcp"
+Docker,DevOps,"docker,dockerized"
+Kubernetes,DevOps,"kubernetes,k8s"
+Git,DevOps,"git"
+GitHub,DevOps,"github"
+CI/CD,DevOps,"ci/cd,cicd,continuous integration"
+Jenkins,DevOps,"jenkins"
+Linux,Operating System,"linux,ubuntu"
+Windows,Operating System,"windows"
+Data Structures,Computer Science,"data structures"
+Algorithms,Computer Science,"algorithms"
+Object-Oriented Programming,Computer Science,"object-oriented programming,object oriented programming,oop"
+DBMS,Computer Science,"dbms,database management system"
+Operating Systems,Computer Science,"operating systems,operating system"
+Computer Networks,Computer Science,"computer networks,networking"
+Agile,Professional Skills,"agile,scrum"
+Problem Solving,Professional Skills,"problem solving,problem-solving"
+Communication,Professional Skills,"communication,communication skills"

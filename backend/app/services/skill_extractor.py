@@ -1,31 +1,50 @@
 from pathlib import Path
+import re
 
 import pandas as pd
 
 
 class SkillExtractor:
-    """
-    Extract technical skills from normalized NLP text
-    using the skills knowledge base.
-    """
 
     @staticmethod
-    def extract(normalized_text: str) -> dict:
+    def _contains(text: str, alias: str) -> bool:
+        alias = alias.strip().lower()
 
-        # Load skills knowledge base
-        file_path = Path("data/skills.csv")
-        dataframe = pd.read_csv(file_path)
+        if not alias:
+            return False
+
+        pattern = r"(?<!\w)" + re.escape(alias) + r"(?!\w)"
+        return re.search(pattern, text.lower()) is not None
+
+    @classmethod
+    def extract(cls, normalized_text) -> dict:
+
+        # Supports both a list of NLP tokens and a normal text string
+        if isinstance(normalized_text, list):
+            text = " ".join(str(token) for token in normalized_text)
+        else:
+            text = str(normalized_text)
+
+        dataframe = pd.read_csv(Path("data/skills.csv"))
+        dataframe.columns = dataframe.columns.str.strip()
 
         extracted = {}
-
-        normalized_text = normalized_text.lower()
 
         for _, row in dataframe.iterrows():
 
             skill = str(row["Skill"]).strip()
             category = str(row["Category"]).strip()
 
-            if skill.lower() in normalized_text:
+            # Uses aliases if present; otherwise uses the skill itself
+            if "Aliases" in dataframe.columns:
+                aliases = str(row["Aliases"]).split(",")
+            else:
+                aliases = [skill]
+
+            if any(cls._contains(text, alias) for alias in aliases):
                 extracted.setdefault(category, []).append(skill)
 
-        return extracted
+        return {
+            category: sorted(set(skills))
+            for category, skills in extracted.items()
+        }

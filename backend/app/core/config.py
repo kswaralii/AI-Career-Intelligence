@@ -2,15 +2,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    """
-    Application configuration loaded from environment variables.
-    """
 
     app_name: str = "AI Career Intelligence Platform"
     app_version: str = "1.0.0"
     debug: bool = True
 
-    # Gemini API Key
     gemini_api_key: str
 
     model_config = SettingsConfigDict(
