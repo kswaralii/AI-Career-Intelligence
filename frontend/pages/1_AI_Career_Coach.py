@@ -1,7 +1,9 @@
 import requests
 import streamlit as st
 
-API_URL = "http://127.0.0.1:8000"
+from utils.config import BACKEND_URL
+
+API_URL = BACKEND_URL
 
 st.set_page_config(
     page_title="AI Career Coach",
