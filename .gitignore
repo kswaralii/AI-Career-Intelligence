@@ -14,11 +14,12 @@ __pycache__/
 # Logs
 *.log
 
-# Uploaded files
-backend/uploads/
+# Uploaded resumes
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Generated reports
+frontend/*.pdf
 
 # VS Code temporary files
 tempCodeRunnerFile*
-
-# Environment Variables
-.env
