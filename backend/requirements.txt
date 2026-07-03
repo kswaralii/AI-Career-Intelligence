@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pandas
+pydantic-settings
+PyMuPDF
+spacy
+google-genai
+scikit-learn
+joblib
